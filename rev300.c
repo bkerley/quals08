@@ -12,7 +12,7 @@ int main() {
 	"	movl	%eax,%edi                   \n"
 	"	xorl	%eax,%eax                   \n"
 	"	orl	$0xffffffff, %ecx            \n"
-	"	repne/scasb	%al, (%edi)          \n"
+	"	repne/scasb         \n"
 	"	negl	%ecx                        \n"
 	"	movl	%ecx,%edx                   \n"
 	"	ret                              \n"

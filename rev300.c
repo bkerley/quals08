@@ -1,13 +1,19 @@
 #include <stdio.h>
 #include <string.h>
 
+#define MMAP_HOME 0x00100420
+
 int main() {
 	char* fart;
 	char* flat;
 	int count;
+	void* map;
+	FILE* prick;
 	fart = strdup("asdf");
-	flat = strdup("zdddasdfasdf");
-	
+	flat = strdup("zdddasdfasdfzzzz");
+	// prick = fopen("prick.txt", "a+");
+	// 	map = mmap(MMAP_HOME, 8, PROT_READ | PROT_WRITE, NULL, fdof(prick));
+	// 	
 	printf("\nit begins\nfart %p %s\nflat %p %s\n",fart, fart, flat, flat);
 	
 	__asm__(
@@ -27,10 +33,12 @@ int main() {
 	"sub_16: \n"
 	"	xor	%eax,%eax                   \n"
 	"	push	%ebx                      \n"
+//	"	push	%eax	\n"
 	"	mov	$0x00000001, %ebx            \n"
 	"here: \n"
 	"	lock/cmpxchg	%ebx,	-44(%esp)   \n"
 	"	jnz	here                  \n"
+//	"	pop	%ebx	\n"
 	"	pop	%ebx                        \n"
 	"	ret                              \n"
 	"	lock/movb	$0x00,	-44(%esp)      \n"
@@ -38,6 +46,7 @@ int main() {
 	"	.byte	0,0,0,0,0,0                \n"
 	"anus: \n"
 	"	nop \n"
+//	"	jmp dhoom\n"
 	);
 	
 	printf("\nwell done\n");

@@ -37,7 +37,7 @@ int main() {
 	"	mov	$0x00000001, %ebx            \n"
 	"here: \n"
 	"	lock/cmpxchg	%ebx,	-44(%esp)   \n"
-	"	jnz	here                  \n"
+	"	jne	here                  \n"
 //	"	pop	%ebx	\n"
 	"	pop	%ebx                        \n"
 	"	ret                              \n"

@@ -1,12 +1,18 @@
 #include <stdio.h>
+#include <string.h>
 
 int main() {
+	char* fart;
+	char* flat;
 	int count;
+	fart = strdup("fartface");
+	flat = strdup("fartfart");
+	
 	printf("\nit begins\n");
 	
 	__asm__(
-	"	lea	fart,%eax	\n"
-	"	lea flat,%ebx	\n"
+	"dhoom: \n"
+	"	nop \n"
 	"	call poopie \n"
 	"	jmp anus \n"
 	"poopie: \n"
@@ -32,10 +38,6 @@ int main() {
 	"	.byte	0,0,0,0,0                  \n"
 	"sphincter: \n"
 	"	.quad	0\n"
-	"fart: \n"
-	"	.asciz \"fartknocker\" \n"
-	"flat: \n"
-	"	.asciz \"fartface\" \n"
 	"anus: \n"
 	"	nop \n"
 	);

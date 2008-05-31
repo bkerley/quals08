@@ -1,9 +1,12 @@
 #include <stdio.h>
 
 int main() {
+	int count;
 	printf("\nit begins\n");
 	
 	__asm__(
+	"	lea	fart,%eax	\n"
+	"	lea flat,%ebx	\n"
 	"	call poopie \n"
 	"	jmp anus \n"
 	"poopie: \n"
@@ -20,15 +23,19 @@ int main() {
 	"	pushl	%ebx                      \n"
 	"	movl	$0x00000001, %ebx            \n"
 	"here: \n"
-	"	lock/cmpxchgl	%ebx,	sphincter   \n"
+	"	lock/cmpxchgl	%ebx,	-44(%esp)   \n"
 	"	jnz	here                  \n"
 	"	popl	%ebx                        \n"
 	"	ret                              \n"
-	"	lock/movb	$0x00,	sphincter      \n"
+	"	lock/movb	$0x00,	-44(%esp)      \n"
 	"	ret                              \n"
 	"	.byte	0,0,0,0,0                  \n"
 	"sphincter: \n"
-	"	.byte	0\n"
+	"	.quad	0\n"
+	"fart: \n"
+	"	.asciz \"fartknocker\" \n"
+	"flat: \n"
+	"	.asciz \"fartface\" \n"
 	"anus: \n"
 	"	nop \n"
 	);

@@ -19,8 +19,9 @@ int main() {
 	"	xorl	%eax,%eax                   \n"
 	"	pushl	%ebx                      \n"
 	"	movl	$0x00000001, %ebx            \n"
+	"here: \n"
 	"	lock/cmpxchgl	%ebx,	sphincter   \n"
-	"	jne	0x00001f9e                  \n"
+	"	jnz	here                  \n"
 	"	popl	%ebx                        \n"
 	"	ret                              \n"
 	"	lock/movb	$0x00,	sphincter      \n"
@@ -32,6 +33,6 @@ int main() {
 	"	nop \n"
 	);
 	
-	printf("\nall done\n");
+	printf("\nwell done\n");
 	return 0;
 }

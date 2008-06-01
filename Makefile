@@ -1,2 +1,3 @@
 all:
-	gcc -gfull -o rev300 rev300.c
+	gcc -o rev300 rev300.c
+

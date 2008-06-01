@@ -19,7 +19,7 @@ int main() {
 	printf("map at: %p\n",map);
 	
 	//fixup the address for 0x80002e:	lock cmpxchg %ebx,0x800048
-	*(int*)(map+16+0x22) = (int)(map + 16 + 0x38);
+	*(int*)(map+16+0x22) = (int)(flat);
 	count = map + 4;
 	__asm__("nop	\ncall	*%eax\n");
 	
